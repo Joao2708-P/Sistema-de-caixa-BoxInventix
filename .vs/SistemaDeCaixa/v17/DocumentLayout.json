@@ -1,0 +1,73 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\joaog\\source\\repos\\SistemaDeCaixa\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{985900C7-312C-43FD-B7D6-96889804F53E}|SistemaDeCaixa\\SistemaDeCaixa.csproj|c:\\users\\joaog\\source\\repos\\sistemadecaixa\\sistemadecaixa\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{985900C7-312C-43FD-B7D6-96889804F53E}|SistemaDeCaixa\\SistemaDeCaixa.csproj|solutionrelative:sistemadecaixa\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{985900C7-312C-43FD-B7D6-96889804F53E}|SistemaDeCaixa\\SistemaDeCaixa.csproj|c:\\users\\joaog\\source\\repos\\sistemadecaixa\\sistemadecaixa\\repository\\descontosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{985900C7-312C-43FD-B7D6-96889804F53E}|SistemaDeCaixa\\SistemaDeCaixa.csproj|solutionrelative:sistemadecaixa\\repository\\descontosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{985900C7-312C-43FD-B7D6-96889804F53E}|SistemaDeCaixa\\SistemaDeCaixa.csproj|c:\\users\\joaog\\source\\repos\\sistemadecaixa\\sistemadecaixa\\telas\\listarprodutos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{985900C7-312C-43FD-B7D6-96889804F53E}|SistemaDeCaixa\\SistemaDeCaixa.csproj|solutionrelative:sistemadecaixa\\telas\\listarprodutos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\joaog\\source\\repos\\SistemaDeCaixa\\SistemaDeCaixa\\.gitignore",
+              "RelativeDocumentMoniker": "SistemaDeCaixa\\.gitignore",
+              "ToolTip": "C:\\Users\\joaog\\source\\repos\\SistemaDeCaixa\\SistemaDeCaixa\\.gitignore",
+              "RelativeToolTip": "SistemaDeCaixa\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-29T14:54:44.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ListarProdutos.cs",
+              "DocumentMoniker": "C:\\Users\\joaog\\source\\repos\\SistemaDeCaixa\\SistemaDeCaixa\\Telas\\ListarProdutos.cs",
+              "RelativeDocumentMoniker": "SistemaDeCaixa\\Telas\\ListarProdutos.cs",
+              "ToolTip": "C:\\Users\\joaog\\source\\repos\\SistemaDeCaixa\\SistemaDeCaixa\\Telas\\ListarProdutos.cs",
+              "RelativeToolTip": "SistemaDeCaixa\\Telas\\ListarProdutos.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAvwC8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-29T02:06:58.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DescontosRepository.cs",
+              "DocumentMoniker": "C:\\Users\\joaog\\source\\repos\\SistemaDeCaixa\\SistemaDeCaixa\\Repository\\DescontosRepository.cs",
+              "RelativeDocumentMoniker": "SistemaDeCaixa\\Repository\\DescontosRepository.cs",
+              "ToolTip": "C:\\Users\\joaog\\source\\repos\\SistemaDeCaixa\\SistemaDeCaixa\\Repository\\DescontosRepository.cs",
+              "RelativeToolTip": "SistemaDeCaixa\\Repository\\DescontosRepository.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAYwEYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-29T02:01:36.178Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarProdutos));
             panel1 = new Panel();
             btnEditar = new Button();
             btnExcluir = new Button();
@@ -42,6 +43,8 @@
             colCodigoDeBarras = new DataGridViewTextBoxColumn();
             colCategoriaNome = new DataGridViewTextBoxColumn();
             colCategoriaId = new DataGridViewTextBoxColumn();
+            colDesconto = new DataGridViewTextBoxColumn();
+            colTipoDeProduto = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).BeginInit();
@@ -116,7 +119,7 @@
             // 
             dgvProdutos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProdutos.Columns.AddRange(new DataGridViewColumn[] { colMarca, colProdutoId, colNome, colPreco, colCodigoDeBarras, colCategoriaNome, colCategoriaId });
+            dgvProdutos.Columns.AddRange(new DataGridViewColumn[] { colMarca, colProdutoId, colNome, colPreco, colCodigoDeBarras, colCategoriaNome, colCategoriaId, colDesconto, colTipoDeProduto });
             dgvProdutos.Location = new Point(3, 14);
             dgvProdutos.Name = "dgvProdutos";
             dgvProdutos.RowHeadersWidth = 100;
@@ -173,6 +176,20 @@
             colCategoriaId.Visible = false;
             colCategoriaId.Width = 125;
             // 
+            // colDesconto
+            // 
+            colDesconto.HeaderText = "Desconto";
+            colDesconto.MinimumWidth = 6;
+            colDesconto.Name = "colDesconto";
+            colDesconto.Width = 125;
+            // 
+            // colTipoDeProduto
+            // 
+            colTipoDeProduto.HeaderText = "Tipo de Produto";
+            colTipoDeProduto.MinimumWidth = 6;
+            colTipoDeProduto.Name = "colTipoDeProduto";
+            colTipoDeProduto.Width = 125;
+            // 
             // ListarProdutos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -181,6 +198,7 @@
             ClientSize = new Size(1374, 565);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListarProdutos";
             Text = "Listar Produtos";
             Load += ListarProdutos_Load;
@@ -207,5 +225,7 @@
         private DataGridViewTextBoxColumn colCodigoDeBarras;
         private DataGridViewTextBoxColumn colCategoriaNome;
         private DataGridViewTextBoxColumn colCategoriaId;
+        private DataGridViewTextBoxColumn colDesconto;
+        private DataGridViewTextBoxColumn colTipoDeProduto;
     }
 }

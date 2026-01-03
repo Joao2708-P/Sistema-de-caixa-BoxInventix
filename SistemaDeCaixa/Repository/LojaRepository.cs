@@ -45,8 +45,8 @@ namespace SistemaDeCaixa.Services
 
                     return new Loja
                     {
-                        id = reader.GetInt32(reader.GetOrdinal("ID")),
-                        api_id = reader.IsDBNull(reader.GetOrdinal("api_id"))
+                        ID = reader.GetInt32(reader.GetOrdinal("ID")),
+                        ApiId = reader.IsDBNull(reader.GetOrdinal("api_id"))
                                     ? null
                                     : reader.GetString(reader.GetOrdinal("api_id")),
                         Nome = reader.GetString(reader.GetOrdinal("nome")),

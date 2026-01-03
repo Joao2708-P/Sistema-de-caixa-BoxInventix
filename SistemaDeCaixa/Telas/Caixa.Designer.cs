@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caixa));
             lblProduto = new Label();
             txtProduto = new TextBox();
             btnAdicionar = new Button();
@@ -38,6 +39,7 @@
             label2 = new Label();
             panel1 = new Panel();
             panel3 = new Panel();
+            btnCancelarVenda = new Button();
             lbTotal = new Label();
             lbSubTotal = new Label();
             panel2 = new Panel();
@@ -160,6 +162,7 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(btnCancelarVenda);
             panel3.Controls.Add(lbTotal);
             panel3.Controls.Add(lbSubTotal);
             panel3.Controls.Add(label1);
@@ -172,6 +175,17 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(940, 204);
             panel3.TabIndex = 12;
+            // 
+            // btnCancelarVenda
+            // 
+            btnCancelarVenda.Font = new Font("Segoe UI", 12F);
+            btnCancelarVenda.Location = new Point(41, 58);
+            btnCancelarVenda.Name = "btnCancelarVenda";
+            btnCancelarVenda.Size = new Size(123, 43);
+            btnCancelarVenda.TabIndex = 12;
+            btnCancelarVenda.Text = "Cancelar";
+            btnCancelarVenda.UseVisualStyleBackColor = true;
+            btnCancelarVenda.Click += btnCancelarVenda_Click;
             // 
             // lbTotal
             // 
@@ -211,10 +225,10 @@
             dgvCarrinho.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvCarrinho.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCarrinho.Columns.AddRange(new DataGridViewColumn[] { btnCancelar, colName, colPreco, colQuantidade, colPesoPorKG, colDesconto, colSubtotal });
-            dgvCarrinho.Location = new Point(3, 3);
+            dgvCarrinho.Location = new Point(-8, 3);
             dgvCarrinho.Name = "dgvCarrinho";
             dgvCarrinho.RowHeadersWidth = 51;
-            dgvCarrinho.Size = new Size(916, 462);
+            dgvCarrinho.Size = new Size(937, 462);
             dgvCarrinho.TabIndex = 0;
             dgvCarrinho.CellContentClick += dgvCarrinho_CellContentClick;
             // 
@@ -274,6 +288,7 @@
             Controls.Add(panel2);
             Controls.Add(panel3);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Caixa";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Caixa (PDV)";
@@ -310,5 +325,6 @@
         private DataGridViewTextBoxColumn colPesoPorKG;
         private DataGridViewTextBoxColumn colDesconto;
         private DataGridViewTextBoxColumn colSubtotal;
+        private Button btnCancelarVenda;
     }
 }

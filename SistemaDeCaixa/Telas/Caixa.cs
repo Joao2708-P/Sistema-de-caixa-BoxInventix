@@ -105,12 +105,16 @@ namespace SistemaDeCaixa.Telas
 
         private void Caixa_Load(object sender, EventArgs e)
         {
-            //DataGridViewButtonColumn btnCancelar = new DataGridViewButtonColumn();
-            //btnCancelar.Name = "btnCancelar";
-            //btnCancelar.HeaderText = "Cancelar";
-            //btnCancelar.Text = "Cancelar";
-            //btnCancelar.UseColumnTextForButtonValue = true;
-            //dgvCarrinho.Columns.Add(btnCancelar);
+            var (venda_id, itens_recuperados ) = vendaService.CarregarVendaAberta(Sessao.LojaId);
+
+            if(venda_id != 0)
+            {
+                vendaId = venda_id;
+                itens = itens_recuperados;
+                AtualizarGrid();
+                MessageBox.Show("Venda anterior recuperada!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             dgvCarrinho.Columns["btnCancelar"].DataPropertyName = "Cancelar";
             dgvCarrinho.Columns["colName"].DataPropertyName = "Nome";
             dgvCarrinho.Columns["colPreco"].DataPropertyName = "Preço";
@@ -178,6 +182,11 @@ namespace SistemaDeCaixa.Telas
                     MessageBox.Show("Venda finalizada");
                 }
             }
+        }
+
+        private void btnCancelarVenda_Click(object sender, EventArgs e)
+        {
+            vendaService.CancelarVenda(vendaId);
         }
     }
 }

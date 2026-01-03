@@ -15,6 +15,7 @@ namespace SistemaDeCaixa.Telas
     public partial class CadastroDeEmpresa : Form
     {
         LojaRepository LojaService;
+        public int LojaIdCriada;
 
         public CadastroDeEmpresa()
         {
@@ -73,17 +74,27 @@ namespace SistemaDeCaixa.Telas
                       txtNomeLoja.Text,
                       txtCnpjLoja.Text,
                       txtEndereo.Text
-                 );
+                );
 
-                var Login = new Login(lojaId);
-                Login.ShowDialog();
+                if(lojaId > 0)
+                {
+                    MessageBox.Show("Empresa cadastrada com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ocorreu um erro ao cadastrar sua loja por favor tente novamente!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                LojaIdCriada = lojaId;
+
+                DialogResult = DialogResult.OK;
+                Close();
             }
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             Criar();
-            this.Close();
         }
     }
 }

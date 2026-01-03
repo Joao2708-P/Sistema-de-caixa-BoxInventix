@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroFuncionario));
             btnCadastrar = new Button();
             txtSenhaFunc = new TextBox();
             txtEmailFunc = new TextBox();
@@ -300,6 +301,7 @@
             Controls.Add(txtEmailFunc);
             Controls.Add(txtSenhaFunc);
             Controls.Add(btnCadastrar);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CadastroFuncionario";
             Text = "Cadastro de Funcionário";
             Load += CadastroFuncionario_Load;

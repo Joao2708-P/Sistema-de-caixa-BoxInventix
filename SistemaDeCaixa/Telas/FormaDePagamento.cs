@@ -15,7 +15,7 @@ namespace SistemaDeCaixa.Telas
     {
         DescontosRepository descontos = new DescontosRepository();
         private decimal valor_total;
-        private string FormaPagamento;
+        public string FormaPagamento;
         private decimal ValorRecebido;
         private decimal Troco;
         private decimal desconto;
@@ -45,11 +45,6 @@ namespace SistemaDeCaixa.Telas
             if (!ProcessarPagamento())
                 return;
 
-                FormaPagamento = cbPagamento.Text;
-                ValorRecebido = FormaPagamento == "Dinheiro"
-                ? decimal.Parse(txtValorRecebido.Text)
-                : valor_total;
-
             DialogResult = DialogResult.OK;
             Close();
         }
@@ -61,9 +56,12 @@ namespace SistemaDeCaixa.Telas
             if(desconto > 0)
             {
                 valor_total = valor_total - desconto;
+                lbTotal.Text = valor_total.ToString();
             }
 
-            if (cbPagamento.Text == "Dinheiro")
+            FormaPagamento = cbPagamento.Text;
+
+            if (FormaPagamento == "Dinheiro")
             {
                 if (!decimal.TryParse(txtValorRecebido.Text, out decimal recebido))
                 {
@@ -77,6 +75,7 @@ namespace SistemaDeCaixa.Telas
                     return false;
                 }
 
+                ValorRecebido = recebido;
                 Troco = recebido - valor_total;
                 lbTroco.Text = Troco.ToString("C");
             }

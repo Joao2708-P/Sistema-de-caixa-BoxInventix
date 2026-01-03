@@ -14,6 +14,7 @@ namespace SistemaDeCaixa
 {
     public partial class TelaDeGerente : Form
     {
+        public bool LogoutSolicitado;
         public TelaDeGerente()
         {
             InitializeComponent();
@@ -21,10 +22,8 @@ namespace SistemaDeCaixa
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            int loja_id = Sessao.LojaId;
-            Sessao.Limpar();
-            this.Close();
-            new Login(loja_id).ShowDialog();
+            LogoutSolicitado = true;
+            Close();
         }
 
         private void btnCadastroProduto_Click(object sender, EventArgs e)

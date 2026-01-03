@@ -91,10 +91,11 @@ namespace SistemaDeCaixa.Telas
 
             List<string> lista = new List<string>
             {
-                "UNIDADE", "KG"
+                "UNIDADE", 
+                "KG"
             };
 
-            cbTipoDeProduto.Items.AddRange(lista);
+            cbTipoDeProduto.DataSource = lista;
             cbTipoDeProduto.SelectedIndex = 0;
 
             if (usuario != "admin" && usuario != "gerente")

@@ -215,14 +215,14 @@ namespace SistemaDeCaixa.Services
 
                     return new Funcionario
                     {
-                        Id = reader.GetInt32(reader.GetOrdinal("ID")),
+                        ID = reader.GetInt32(reader.GetOrdinal("ID")),
                         LojaId = reader.GetInt32(reader.GetOrdinal("loja_id")),
                         Nome = reader["nome"].ToString(),
                         Login = reader["login"].ToString(),
-                        email = reader["email"].ToString(),
-                        senha_rash = reader["senha_hash"].ToString(),
+                        Email = reader["email"].ToString(),
+                        SenhaHash = reader["senha_hash"].ToString(),
                         role = reader["role"].ToString(),
-                        api_id = reader["api_id"] == DBNull.Value
+                        ApiId = reader["api_id"] == DBNull.Value
                                     ? 0
                                     : Convert.ToInt32(reader["api_id"])
                     };

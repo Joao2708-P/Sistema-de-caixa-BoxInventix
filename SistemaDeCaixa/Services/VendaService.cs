@@ -1,5 +1,7 @@
-﻿using SistemaDeCaixa.Services;
+﻿using SistemaDeCaixa.Models;
+using SistemaDeCaixa.Services;
 using System;
+using System.Data;
 
 public class VendaService
 {
@@ -47,5 +49,10 @@ public class VendaService
     public void CancelarVenda(int vendaId)
     {
         vendaRepo.AtualizarStatus(vendaId, "cancelada", null);
+    }
+
+    public (int venda_id, List<ItemCaixa> itens) CarregarVendaAberta(int loja_id)
+    {
+        return vendaRepo.ObterVendaAberta(loja_id);
     }
 }

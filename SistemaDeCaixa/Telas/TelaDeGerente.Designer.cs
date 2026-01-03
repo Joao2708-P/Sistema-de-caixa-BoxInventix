@@ -25,6 +25,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaDeGerente));
             lblTitulo = new Label();
             btnCadastroProduto = new Button();
             btnCriarCategoria = new Button();
@@ -157,6 +158,7 @@
             Controls.Add(btnCadastrarFuncionario);
             Controls.Add(btnLogout);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "TelaDeGerente";
             StartPosition = FormStartPosition.CenterScreen;

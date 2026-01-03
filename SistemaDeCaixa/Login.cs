@@ -7,6 +7,8 @@ namespace SistemaDeCaixa
     public partial class Login : Form
     {
         private int loja_id;
+        public bool Autenticado;
+        public string Role;
 
         public Login(int _loja_id)
         {
@@ -18,43 +20,29 @@ namespace SistemaDeCaixa
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            string getLogin = txtLogin.Text;
-            string getSenha = txtSenha.Text;
-
-            if (getLogin != "" && getSenha != "")
+            if (string.IsNullOrWhiteSpace(txtLogin.Text) ||
+                 string.IsNullOrWhiteSpace(txtSenha.Text))
             {
-                FuncionarioRepository funcionarioService = new FuncionarioRepository();
-
-                var usuario = funcionarioService.ValidarLogin(getLogin, getSenha);
-
-                if (usuario != null)
-                {
-                    Sessao.UsuarioLogado = usuario;
-                    Sessao.LojaId = loja_id;
-
-                    Form proximaTela;
-
-                    if (usuario.role == "gerente" || usuario.role == "admin")
-                    {
-                        proximaTela = new TelaDeGerente();
-                    }
-                    else
-                    {
-                        proximaTela = new Telas.Caixa(usuario);
-                    }
-
-                    proximaTela.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Usuário não encontrado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Preencha login e senha");
+                return;
             }
-            else
+
+            var usuario = funcionario.ValidarLogin(txtLogin.Text, txtSenha.Text);
+
+            if (usuario == null)
             {
-                MessageBox.Show("Por favor preencha o login e senha corretamente");
+                MessageBox.Show("Usuário não encontrado");
+                return;
             }
+
+            Sessao.UsuarioLogado = usuario;
+            Sessao.LojaId = loja_id;
+
+            Autenticado = true;
+            Role = usuario.role;
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -68,15 +56,15 @@ namespace SistemaDeCaixa
                     MessageBoxIcon.Information
                 );
 
-                this.Hide();
-
-                CadastroFuncionario func = new CadastroFuncionario(loja_id);
-                func.ShowDialog(); // modal
-
-                if (func.ShowDialog() == DialogResult.OK)
+                using(var func = new CadastroFuncionario(loja_id))
                 {
-                    // gerente foi cadastrado → volta para login
-                    this.Show();
+                    var result = func.ShowDialog();
+
+                    if(result != DialogResult.OK)
+                    {
+                        Close();
+                        return;
+                    }
                 }
             }
         }

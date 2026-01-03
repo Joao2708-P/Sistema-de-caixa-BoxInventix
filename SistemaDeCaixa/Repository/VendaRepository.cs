@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaDeCaixa.Models;
 
 namespace SistemaDeCaixa.Services
 {
@@ -52,6 +53,69 @@ namespace SistemaDeCaixa.Services
 
             cmd.ExecuteNonQuery();
         }
+
+        public (int vendaId, List<ItemCaixa> itens) ObterVendaAberta(int lojaId)
+        {
+            using var conn = LocalDB.DbConnection();
+            conn.Open();
+
+            // 1️⃣ Venda aberta
+            var cmdVenda = new SQLiteCommand(@"
+                    SELECT ID 
+                    FROM Venda 
+                    WHERE loja_id = @lojaId 
+                      AND status = 'aberta'
+                    LIMIT 1
+            ", conn);
+
+            cmdVenda.Parameters.AddWithValue("@lojaId", lojaId);
+
+            var vendaIdObj = cmdVenda.ExecuteScalar();
+            if (vendaIdObj == null)
+                return (0, new List<ItemCaixa>());
+
+            int vendaId = Convert.ToInt32(vendaIdObj);
+
+            var cmdItens = new SQLiteCommand(@"
+                SELECT
+                     p.ID AS ID,
+                     p.Nome AS Nome,
+                     vi.preco_unitario AS Preco,
+                     vi.Quantidade AS Quantidade,
+                     vi.peso_kg AS KG,
+                     P.Desconto AS Desconto,
+                     vi.subtotal AS Subtotal
+                FROM VendaItem vi
+                INNER JOIN Produtos p ON p.ID = vi.produto_id
+                WHERE vi.venda_id = @vendaId
+            ", conn);
+
+            cmdItens.Parameters.AddWithValue("@vendaId", vendaId);
+
+            var itens = new List<ItemCaixa>();
+
+            using var reader = cmdItens.ExecuteReader();
+            while (reader.Read())
+            {
+                itens.Add(new ItemCaixa
+                {
+                    Produtos = new Produtos
+                    {
+                        ID = Convert.ToInt32(reader["ID"]),
+                        Nome = reader["Nome"].ToString(),
+                        Desconto = Convert.ToDecimal(reader["Desconto"])
+                    },
+                    Quantidade = Convert.ToInt32(reader["Quantidade"]),
+                    PesoKg = Convert.ToDecimal(reader["KG"]),
+                    PrecoUnitario = Convert.ToDecimal(reader["Preco"]),
+                    Subtotal = Convert.ToDecimal(reader["Subtotal"]),
+                    DescontoItem = Convert.ToDecimal(reader["Desconto"])
+                });
+            }
+
+            return (vendaId, itens);
+        }
+
 
         public void AtualizarStatus(int vendaId, string status, string? formaPagamento)
         {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaFuncionarioscs));
             panel1 = new Panel();
             dgvFuncionario = new DataGridView();
             panel2 = new Panel();
@@ -94,6 +95,7 @@
             ClientSize = new Size(1374, 631);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListaFuncionarioscs";
             Text = "ListaFuncionarioscs";
             Load += ListaFuncionarioscs_Load;

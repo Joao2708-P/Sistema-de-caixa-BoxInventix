@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroDeCategorias));
             lblTitulo = new Label();
             label1 = new Label();
             txtNomeCategoria = new TextBox();
@@ -95,6 +96,7 @@
             Controls.Add(txtNomeCategoria);
             Controls.Add(label1);
             Controls.Add(lblTitulo);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(360, 379);
             MinimumSize = new Size(360, 379);
             Name = "CadastroDeCategorias";

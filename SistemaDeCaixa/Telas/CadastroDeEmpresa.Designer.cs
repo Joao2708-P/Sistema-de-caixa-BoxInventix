@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroDeEmpresa));
             label1 = new Label();
             txtNomeLoja = new TextBox();
             txtCnpjLoja = new TextBox();
@@ -165,7 +166,11 @@
             Controls.Add(txtCnpjLoja);
             Controls.Add(txtNomeLoja);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(429, 514);
+            MinimumSize = new Size(429, 514);
             Name = "CadastroDeEmpresa";
+            ShowInTaskbar = false;
             Text = "CadastroDeEmpresa";
             ResumeLayout(false);
             PerformLayout();

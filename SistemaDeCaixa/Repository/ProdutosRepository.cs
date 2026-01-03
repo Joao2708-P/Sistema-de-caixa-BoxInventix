@@ -52,7 +52,7 @@ namespace SistemaDeCaixa.Services
             p.codigo_de_barras  AS CodigoDeBarras,
             p.tipo_de_produto   AS TipoDeProduto,
             p.Desconto          AS Desconto,
-            c.nome              AS Categoria
+            c.nome              AS Categoria,
               FROM Produtos p
               INNER JOIN Categoria c ON c.id = p.categoria_id
               WHERE p.loja_id = @loja_id", conn))

@@ -30,6 +30,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroDeProdutos));
             lblTitulo = new Label();
             lblNome = new Label();
             txtNome = new TextBox();
@@ -122,7 +123,6 @@
             // cbCategoria
             // 
             cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbCategoria.Items.AddRange(new object[] { "Roupas", "Calçados", "Acessórios", "Outros" });
             cbCategoria.Location = new Point(21, 419);
             cbCategoria.Name = "cbCategoria";
             cbCategoria.Size = new Size(200, 28);
@@ -176,7 +176,6 @@
             // cbTipoDeProduto
             // 
             cbTipoDeProduto.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbTipoDeProduto.Items.AddRange(new object[] { "Roupas", "Calçados", "Acessórios", "Outros" });
             cbTipoDeProduto.Location = new Point(21, 286);
             cbTipoDeProduto.Name = "cbTipoDeProduto";
             cbTipoDeProduto.Size = new Size(200, 28);
@@ -195,7 +194,7 @@
             // CadastroDeProdutos
             // 
             BackColor = Color.FromArgb(10, 61, 98);
-            ClientSize = new Size(420, 514);
+            ClientSize = new Size(408, 514);
             Controls.Add(label2);
             Controls.Add(cbTipoDeProduto);
             Controls.Add(label1);
@@ -212,6 +211,7 @@
             Controls.Add(btnSalvar);
             Controls.Add(btnCancelar);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CadastroDeProdutos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Produto";
